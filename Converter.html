@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <script src="indica_to_unicode.js"></script>
+	 <script src="indoweb_to_unicode.js"></script>
+	 <script src="bamini_to_unicode.js"></script>
+	 <script src="shreelipi_to_unicode.js"></script>
+	 <script src="anufonts_to_unicode.js"></script>
+
+	 <script src="unicode_to_indica.js"></script>
+	 <script src="unicode_to_indoweb.js"></script>
+	 <script src="unicode_to_bamini.js"></script>
+	 <script src="unicode_to_shreelipi.js"></script>
+	 <script src="unicode_to_anufonts.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	function mychoice(){
+		var methodFrom = this.convertFrom.value;
+		var methodTo = this.convertTo.value;
+		var fromMethods = {
+			"Indica": Indica_To_Unicode,
+			"Indoweb": Indoweb_To_Unicode,
+			"Bamini": Bamini_To_Unicode,
+			"ShreeLipi": Shreelipi_To_Unicode,
+			"AnuFonts": Anufonts_To_Unicode,
+			"Unicode": "Unicode to Unicode",
+		};
+		var toMethods = {
+			"Indica": Unicode_To_Indica,
+			"Indoweb": Unicode_To_Indoweb,
+			"Bamini": Unicode_To_Bamini,
+			"ShreeLipi": Unicode_To_Shreelipi,
+			"AnuFonts": Unicode_To_Anufonts,
+			"Unicode": "Unicode to Unicode",
+		};
+		var convertedText = "";
+		if(methodFrom != methodTo){
+			if(methodFrom == "Unicode"){
+				var convertedText = toMethods[methodTo](this.txtFrom.value);
+			}else if(methodTo != "Unicode"){
+				var fromResult = fromMethods[methodFrom](this.txtFrom.value);
+				var convertedText = toMethods[methodTo](fromResult);
+			}else{
+				var convertedText = fromMethods[methodFrom](this.txtFrom.value);
+			};
+		} else {
+			alert("Please select different conversions!");
+		};
+		this.txtTo.value = convertedText;
+		event.preventDefault();
+	};
+</script>
+<h1>Tamil Text Converter</h1>
+
+<p>Version 1.0 (Alpha) Dated: June 2020 | Kumaran</p>
+
+<form action="get" onsubmit="return mychoice()">
+  <label for="cars">Choose a conversion method:</label>
+  <select required name="convertFrom" id="convertFrom">
+  	<option value="">None</option>
+    <option value="Indica">Indica (Mac)</option>
+    <option value="Indoweb">Indoweb</option>
+    <option value="Bamini">Bamini</option>
+    <option value="ShreeLipi">ShreeLipi 7</option>
+    <option value="AnuFonts">AnuFonts (Win)</option>
+    <option value="Unicode">Unicode</option>
+  </select>
+  to
+  <select required name="convertTo" id="convertTo">
+  	<option value="">None</option>
+    <option value="Indica">Indica (Mac)</option>
+    <option value="Indoweb">Indoweb</option>
+    <option value="Bamini">Bamini</option>
+    <option value="ShreeLipi">ShreeLipi 7</option>
+    <option value="AnuFonts">AnuFonts (Win)</option>
+    <option value="Unicode">Unicode</option>
+  </select>
+  <br>
+  <textarea id="txtFrom" name="txtFrom" rows="10" cols="50">
+  Lorem ipsum dolor sit amet, convallis vitae libero porta ea at, placerat quam integer, nonummy a. Tempus eleifend vel facilisis curae quis non, mauris ac dui ullamcorper lacinia diam, nunc auctor, adipiscing amet ullamcorper tellus diam. Tellus platea, odio tortor ridiculus, gravida tellus vestibulum et tempus mauris vitae. Sem libero donec sed justo sem, magna vestibulum ad a massa. Leo euismod proin taciti sit massa at. Blandit wisi, in blandit placerat.
+  </textarea>
+  <br>
+  <textarea id="txtTo" name="txtTo" rows="10" cols="50">
+  
+  </textarea>
+  <br>
+  <input type = "submit" value = "Submit">
+</form>
+
+
+</body>
+</html>

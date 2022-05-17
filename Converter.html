@@ -11,7 +11,8 @@
 	 <script src="unicode_to_indoweb.js"></script>
 	 <script src="unicode_to_bamini.js"></script>
 	 <script src="unicode_to_shreelipi.js"></script>
-	 <script src="unicode_to_anufonts.js"></script> 
+	 <script src="unicode_to_anufonts.js"></script>
+	 <script src="unicode_to_tharmini.js"></script> 
 </head>
 <body>
 <script type="text/javascript">
@@ -33,6 +34,7 @@
 			"ShreeLipi": Unicode_To_Shreelipi,
 			"AnuFonts": Unicode_To_Anufonts,
 			"Unicode": "Unicode to Unicode",
+			"Tharmini": Unicode_To_Tharmini,
 		};
 		var convertedText = "";
 		if(methodFrom != methodTo){
@@ -53,7 +55,7 @@
 </script>
 <h1>Tamil Text Converter</h1>
 
-<p>Version 1.0 (Alpha) Dated: June 2020 | Kumaran</p>
+<p>Version 2.0 (Alpha) Dated: May 2022 | Kumaran</p>
 
 <form action="get" onsubmit="return mychoice()">
   <label for="cars">Choose a conversion method:</label>
@@ -74,6 +76,7 @@
     <option value="Bamini">Bamini</option>
     <option value="ShreeLipi">ShreeLipi 7</option>
     <option value="AnuFonts">AnuFonts (Win)</option>
+    <option value="Tharmini">Tharmini</option>
     <option value="Unicode">Unicode</option>
   </select>
   <br>
